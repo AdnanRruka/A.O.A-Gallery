@@ -11,7 +11,7 @@ document.body.appendChild(h1);
 var sideBar = document.createElement('div');
 sideBar.setAttribute('id', 'sidebar');
 sideBar.setAttribute('style',
-    "background-color:#E8833A;display:flex;flex-direction:column;width:30%;height:55vw;float:left;justify-content:center; align-items: center;color:white;font-size: 24px;font-weight:bold;  "
+    "background-color:#E8833A;display:flex;flex-direction:column;width:30%;height:55vw;float:left;justify-content:center; align-items: center;color:white;font-size: 24px;font-weight:bold;"
 );
 document.body.appendChild(sideBar);
 
@@ -31,6 +31,7 @@ document.body.appendChild(imgDiv);
 //creating li's and adding them to  sideDiv
 var li1 = document.createElement('li');
 var li2 = document.createElement('li');
+li2.setAttribute('style', 'margin:20px 0 20px 0');
 var li3 = document.createElement('li');
 li1.innerText = "New Images";
 li2.innerText = "Images";
