@@ -1,100 +1,56 @@
-//Create Input
-let myInput = document.createElement("input");
-myInput.setAttribute("placeholder", "Paste url image here");
-imgDiv.appendChild(myInput);
-
-//Create Button
-let myButton = document.createElement("button");
-myButton.innerText = "Add URL";
-
-imgDiv.appendChild(myButton);
-
-let nameInput = document.createElement("input");
-nameInput.setAttribute("placeholder", "image name");
-imgDiv.appendChild(nameInput);
-
-let descInput = document.createElement("input");
-descInput.setAttribute("placeholder", "image description");
-imgDiv.appendChild(descInput);
-
-//Clear input after submitting
-myButton.addEventListener("click", function() {
-  saveURL();
-  displayImg();
-  //removeImg();
-  clearInput();
-  imgDescription();
-  imgName();
-  console.log(imgObject);
-});
-
-//Save url to object.
-function saveURL(e) {
-  let inputValue = myInput.value;
-  imgObject.url = inputValue;
-}
-
-function imgDescription() {
-  imgObject.description = descInput.value;
-}
-
-function imgName() {
-  imgObject.name = nameInput.value;
-}
-
-//Clear input function
-function clearInput() {
-  myInput.value = "";
-}
-
-let imgObject = {};
-let pic;
-
-function displayImg() {
-  if (myInput.value === "") {
-    alert("Paste url link first!");
-    return false;
-  }
-  pic = document.createElement("img");
-  pic.setAttribute("src", imgObject.url);
-  imgDiv.appendChild(pic);
-}
-
-let button = document.createElement("button");
-h1.appendChild(button);
-button.setAttribute("style", "float:right;");
-button.innerText = " Button";
-h1.appendChild(button);
-
-/*let button = document.createElement("button");
-button.innerHTML = "button";
-document.body.appendChild(button);*/
-
-button.addEventListener("click", createForm);
-function createForm() {
-  let loginDiv = document.createElement("div");
-
-  loginDiv.setAttribute(
+let formButton = document.createElement("button");
+formButton.innerHTML = "login Button";
+formButton.setAttribute("style", "float:right");
+h1.appendChild(formButton);
+formButton.addEventListener("click", function() {
+  let formPop = document.createElement("div");
+  imgDiv.appendChild(formPop);
+  formPop.setAttribute(
     "style",
-    "width:300px;height:300px;background-color:lightgrey;margin:auto;"
+    "width:400px;height:350px;background:white;transform:translate(50%,30px);position:fixed;border-radius:4px;"
+  );
+  let h1login = document.createElement("h1");
+  h1login.setAttribute(
+    "style",
+    "color:black; font-size:20px;position:absolute;top:30px;left:160px"
+  );
+  h1login.innerHTML = "login";
+  formPop.appendChild(h1login);
+  let submitKnapp = document.createElement("button");
+  submitKnapp.innerHTML = "submit";
+  submitKnapp.setAttribute(
+    "style",
+    "transform:translate(150px,200px);border-radius:10px;"
+  );
+  formPop.appendChild(submitKnapp);
+  let divForm = document.createElement("div");
+  divForm.setAttribute("style", "transform:translate(60px,60px);");
+
+  let userName = document.createElement("input");
+  userName.setAttribute("placeholder", "Email");
+  userName.setAttribute(
+    "style",
+    "margin-left:40px;text-align:center;border-radius:10px;"
+  );
+  let passWord = document.createElement("input");
+  passWord.setAttribute("placeholder", "PassWord");
+  passWord.setAttribute(
+    "style",
+    "margin:40px; text-align:center;border-radius:10px;"
   );
 
-  let input = document.createElement("input");
-  input.setAttribute("placeholder", "email");
+  divForm.appendChild(userName);
+  divForm.appendChild(passWord);
+  formPop.appendChild(divForm);
 
-  let input2 = document.createElement("input");
-  input2.setAttribute("placeholder", "password");
-
-  let loginBtn = document.createElement("button");
-  loginBtn.innerText = "button";
-
-  imgDiv.appendChild(loginDiv);
-  loginDiv.appendChild(input);
-  loginDiv.appendChild(input2);
-  loginDiv.appendChild(loginBtn);
-  preventFromClicking();
-}
-
-function preventFromClicking() {
-  button.removeEventListener("click", createForm);
-}
+  let buttonRemove = document.createElement("button");
+  buttonRemove.innerHTML = "X";
+  buttonRemove.setAttribute(
+    "style",
+    "position:absolute;top:-90px;background:none;"
+  );
+  divForm.appendChild(buttonRemove);
+  buttonRemove.addEventListener("click", function() {
+    formPop.setAttribute("style", "visibility:hidden");
+  });
+});
