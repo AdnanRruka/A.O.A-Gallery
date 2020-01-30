@@ -10,28 +10,29 @@ class Main {
     //Creating headline with name and styled.
     headLine() {
         //Gallery text/name
-        this.h1 = document.createElement('h1');
-        this.h1.setAttribute('id', 'h1-text');
-        this.h1.setAttribute('style',
+
+        this.headLineTextContainer = document.createElement('h1');
+        this.headLineTextContainer.setAttribute('id', 'headLineTextContainer-text');
+        this.headLineTextContainer.setAttribute('style',
             "background-color:#F7C325; text-align:center; margin:0px;"
         );
-        this.h1.innerText = "Gallery  application 2000";
-        document.body.appendChild(this.h1);
+        this.headLineTextContainer.innerText = "Gallery  application 2000";
+        document.body.appendChild(this.headLineTextContainer);
     }
     //Creating and appending login button
     loginButton() {
         this.button = document.createElement('button');
         this.button.innerHTML = "login";
         this.button.setAttribute('style', 'float:right;background:orange');
-        this.h1.appendChild(this.button);
+        this.headLineTextContainer.appendChild(this.button);
     }
     //Creating,appending and styling login form
     loginFormFunc() {
         this.button.addEventListener('click', function () {
             this.loginForm = document.createElement('div');
             this.loginForm.setAttribute('style', 'width:300px;height:300px;background-color:#d2d4d6;position:fixed;transform:translate(150%,50%)');
-            this.formF = document.createElement('div');
-            this.formF.setAttribute('style', 'margin:65px;')
+            this.UserPasswordDiv = document.createElement('div');
+            this.UserPasswordDiv.setAttribute('style', 'margin:65px;')
             this.buttonModal = document.createElement('button');
             this.buttonModal.innerHTML = "submit";
             this.buttonModal.setAttribute('style', 'position:relative;left:40px;margin:10px;')
@@ -39,22 +40,22 @@ class Main {
             this.user.setAttribute('placeholder', 'userName');
             this.user.setAttribute('style', '')
 
-            this.pass = document.createElement('input');
-            this.pass.setAttribute('placeholder', 'password');
-            this.pass.setAttribute('style', '')
+            this.passwordInput = document.createElement('input');
+            this.passwordInput.setAttribute('placeholder', 'password');
+            this.passwordInput.setAttribute('style', '')
 
             this.buttonX = document.createElement('button');
             this.buttonX.innerHTML = "X";
             this.loginForm.appendChild(this.buttonX)
 
             this.loginForm.appendChild(this.user);
-            this.loginForm.appendChild(this.pass);
-            this.loginForm.appendChild(this.formF);
+            this.loginForm.appendChild(this.passwordInput);
+            this.loginForm.appendChild(this.UserPasswordDiv);
 
 
-            this.formF.appendChild(this.user);
-            this.formF.appendChild(this.pass);
-            this.formF.appendChild(this.buttonModal);
+            this.UserPasswordDiv.appendChild(this.user);
+            this.UserPasswordDiv.appendChild(this.passwordInput);
+            this.UserPasswordDiv.appendChild(this.buttonModal);
 
             document.body.appendChild(this.loginForm);
 
@@ -63,17 +64,7 @@ class Main {
             })
         })
 
-        // this.buttonX.addEventListener('click', function () {
-        //     // this.buttonX.setAttribute('style', 'color:red;');
-
-        // })
-
-
-
-
     }
-
-
 
     //Creating,appending,styling sideBar
     sideBarFunc() {
@@ -136,6 +127,6 @@ class Main {
 }
 //Activating Main object when Content Loaded
 document.addEventListener('DOMContentLoaded', function () {
-    new Main(); //MainScreen.sideBar, MainScreen.h1);
+    new Main();
 
 })
